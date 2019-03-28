@@ -1,0 +1,44 @@
+.btn-group {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+}
+.btn-group-lg>.btn, .btn-lg {
+    border-radius: 0;
+}
+.btn-primary {
+    background-color: #f45858;
+    border: 2px solid black;
+}
+.btn-primary:hover {
+    background-color: #f47f7f;
+    border: 2px solid #222;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
+  }
+.card {
+    min-width: 70%;
+    margin: 20px 10px;
+    float: none; 
+    display: none;
+}
+.flexCards {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+}
+.center {
+    display: flex;
+    justify-content: center;
+}
+.currentCard {
+    display: block;
+}
