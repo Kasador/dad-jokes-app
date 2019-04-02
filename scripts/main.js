@@ -1,4 +1,7 @@
 $(document).ready(function(){
+//=========================== F U N C T I O N S ====================================//
+//=========================== F U N C T I O N S ====================================//
+//=========================== F U N C T I O N S ====================================//
     // function to get random card
         function generateCard(card) {
         // get cards and the count
@@ -26,78 +29,8 @@ $(document).ready(function(){
             return currentCard;
         }
 
-    // display first card
-    let firstLoaded = true;
-
-    // display first card only on load
-        do {
-            generateCard().style.display = 'block';
-            firstLoaded = false;
-        }
-        while (firstLoaded == true);
-
-        // variables for save info
-
-
-
-
-
-
-
-
-
-// ------------------TESTING -------------------//
-
-
-
-        // $('.ranBtn').on('click', function() {
-        //     getCurrentTitle();
-        //     getCurrentText();
-        // });
-
-        function getCurrentTitle() {
-            let savedTitle = $(".card:visible").find('.card-title').text();
-            return savedTitle;
-        }
-
-        function getCurrentText() {
-            let savedText = $(".card:visible").find('.card-text').text();
-            return savedText;
-        }
-
-
-
-
-// ---------------END OF TESTING --------------------//
-
-
-
-
-
-        // variables for save button
-        let save = 'Save <i class="fa fa-star" aria-hidden="true"></i>';
-        let unsave = 'Unsave <i class="fa fa-trash" aria-hidden="true"></i>';
-        let cardId = $(".card:visible").attr("id");
-
-        // get another random card on random btn click
-        $('.ranBtn').on('click', function() {
-            // remove last card and get new
-            removeLastCard().hide();
-            generateCard().style.display = 'block';
-
-            // get id of current card
-            let saveId = $(".card:visible").attr("id");
-
-            // if saved change save btn
-            if (localStorage.getItem('button ' + saveId) === null) {
-                $('.saveBtn').html(save);
-            } else {
-                $('.saveBtn').html(localStorage.getItem('button ' + saveId));
-            }
-        });
-
-        // save data
-        function saveData(data) {
+         // save data
+         function saveData(data) {
             localStorage.setItem(data, unsave);
         }
 
@@ -126,6 +59,52 @@ $(document).ready(function(){
         function deleteText(data) {
             localStorage.removeItem(data);
         }
+
+        function getCurrentTitle() {
+            let savedTitle = $(".card:visible").find('.card-title').text();
+            return savedTitle;
+        }
+
+        function getCurrentText() {
+            let savedText = $(".card:visible").find('.card-text').text();
+            return savedText;
+        }
+
+//=========================== end of F U N C T I O N S ====================================//
+//=========================== end of F U N C T I O N S ====================================//
+//=========================== end of F U N C T I O N S ====================================//
+
+    // display first card
+    let firstLoaded = true;
+
+    // display first card only on load
+        do {
+            generateCard().style.display = 'block';
+            firstLoaded = false;
+        }
+        while (firstLoaded == true);
+
+        // variables for save button
+        let save = 'Save <i class="fa fa-star" aria-hidden="true"></i>';
+        let unsave = 'Unsave <i class="fa fa-trash" aria-hidden="true"></i>';
+        let cardId = $(".card:visible").attr("id");
+
+        // get another random card on random btn click
+        $('.ranBtn').on('click', function() {
+            // remove last card and get new
+            removeLastCard().hide();
+            generateCard().style.display = 'block';
+
+            // get id of current card
+            let saveId = $(".card:visible").attr("id");
+
+            // if saved change save btn
+            if (localStorage.getItem('button ' + saveId) === null) {
+                $('.saveBtn').html(save);
+            } else if (localStorage.getItem('button ' + saveId) !== null) {
+                $('.saveBtn').html(localStorage.getItem('button ' + saveId));
+            }
+        });
 
         // change save btn text to unsave on click, (toggle)
         $('.saveBtn').on('click', function() {
@@ -162,7 +141,7 @@ $(document).ready(function(){
             if (localStorage.getItem('button ' + saveId) === null) {
                 $('.saveBtn').html(save);
             } else {
-                $('.saveBtn').html(localStorage.getItem('button ' + cardId));
+                $('.saveBtn').html(unsave);
             }
         });
 
