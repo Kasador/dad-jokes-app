@@ -151,4 +151,19 @@ $(document).ready(function(){
         } else {
             $('.saveBtn').html(localStorage.getItem('button ' + cardId));
         }
+
+        favOpened = false;
+        homeOpened = true;
+        settingOpened = false;
+        // favorites page
+        $('.favorites').on('click', function(){
+            let toggle = $(".favorites-page").animate({width:'toggle'},350);
+            favOpened = true;
+            homeOpened = false;
+        });
+        // home page
+        $('.home').on('click', function(){
+            // if ()
+            $(".favorites-page").animate({width:'toggle'},350);
+        });
 });
