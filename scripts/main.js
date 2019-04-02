@@ -138,8 +138,7 @@ $(document).ready(function(){
                 // save card
                 console.log('Card ' + saveId + ' has been saved!');
                 saveData('button ' + saveId);
-                
-                $('.saveBtn').html(localStorage.getItem('button ' + saveId));
+
                 // id the card to get card info
                 getCurrentCard.addClass(saveId);
                 if (getCurrentCard.hasClass(saveId)) {
