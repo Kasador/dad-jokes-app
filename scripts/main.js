@@ -182,4 +182,7 @@ $(document).ready(function(){
                 settingsPage.animate({width:'toggle'},350);
             }
         });
+
+        // append cards function
+        
 });
