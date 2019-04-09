@@ -152,18 +152,34 @@ $(document).ready(function(){
             $('.saveBtn').html(localStorage.getItem('button ' + cardId));
         }
 
-        favOpened = false;
-        homeOpened = true;
-        settingOpened = false;
+        // toggle pages on button clicks of menu
+        let favoritesPage = $('.favorites-page'),
+            settingsPage = $('.settings-page');
+
         // favorites page
         $('.favorites').on('click', function(){
-            let toggle = $(".favorites-page").animate({width:'toggle'},350);
-            favOpened = true;
-            homeOpened = false;
+            favoritesPage.animate({width:'toggle'},350);
+
+            if (settingsPage.css('display') == 'block') {
+                settingsPage.animate({width:'toggle'},350);
+            }
         });
+        
+        // settings page
+        $('.settings').on('click', function(){
+            settingsPage.animate({width:'toggle'},350);
+
+            if (favoritesPage.css('display') == 'block') {
+                favoritesPage.animate({width:'toggle'},350);
+            }
+        });
+
         // home page
         $('.home').on('click', function(){
-            // if ()
-            $(".favorites-page").animate({width:'toggle'},350);
+            if (favoritesPage.css('display') == 'block') {
+                favoritesPage.animate({width:'toggle'},350);
+            } else if (settingsPage.css('display') == 'block') {
+                settingsPage.animate({width:'toggle'},350);
+            }
         });
 });
