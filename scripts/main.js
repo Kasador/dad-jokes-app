@@ -182,7 +182,12 @@ $(document).ready(function(){
                 settingsPage.animate({width:'toggle'},350);
             }
         });
-
-        // append cards function
-        
+        // check if there is anything in local storage
+        if (localStorage.getItem("button 2") !== null) {
+            // append cards function
+            $('.append-cards').append(
+                '<div class="card-body border"><h5 class="card-title title">test</h5><p class="card-text">some</p><a href="#" class="btn btn-primary saveBtn notSaved"></a></div>'
+            );
+            // $('.card-title')
+          }
 });
