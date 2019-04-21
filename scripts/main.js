@@ -182,12 +182,32 @@ $(document).ready(function(){
                 settingsPage.animate({width:'toggle'},350);
             }
         });
+        for (let i=1; i < $('.card').length + 1; i++) {
+            // console.log('Number ' + i);
+            let title = localStorage.getItem('title ' + i),
+                text = localStorage.getItem('text ' + i),
+                btn = localStorage.getItem('button ' + i);
+
+            if (title !== null && text !== null && btn !== null) {
+                // append cards function
+                $('.append-cards').append(
+                    '<div class="card-body border"><h5 class="card-title title-append'+i+'"></h5><p class="card-text text-append'+i+'"></p><a href="#" class="btn btn-primary saveBtn notSaved btn-append'+i+'"></a></div>'
+                );
+                $('.title-append' + i).append(title);
+                $('.text-append' + i).append(text);
+                $('.btn-append' + i).append(btn);
+            }
+        }
         // check if there is anything in local storage
-        if (localStorage.getItem("button 2") !== null) {
-            // append cards function
-            $('.append-cards').append(
-                '<div class="card-body border"><h5 class="card-title title">test</h5><p class="card-text">some</p><a href="#" class="btn btn-primary saveBtn notSaved"></a></div>'
-            );
-            // $('.card-title')
-          }
+        // setInterval( () => {
+        //     if (localStorage.getItem("button 2") !== null) {
+        //         // append cards function
+        //         $('.append-cards').append(
+        //             '<div class="card-body border"><h5 class="card-title title-append"></h5><p class="card-text text-append">some</p><a href="#" class="btn btn-primary saveBtn notSaved btn-append"></a></div>'
+        //         );
+        //       }
+        // },1000);
+        // let test = localStorage.getItem('button 2');
+        // $('.append-cards').append(test);
+
 });
