@@ -2,6 +2,11 @@
     position: absolute;
     bottom: 0;
     width: 100vw;
+    max-width: 500px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
     z-index: 15;
 }
 .btn-group-lg>.btn, .btn-lg {
@@ -26,19 +31,22 @@
                                     supported by Chrome and Opera */
   }
 .card {
-    min-width: 70%;
-    margin: 20px 10px;
+    width: 90%;
+    max-width: 470px;
     float: none; 
     display: none;
+    margin: 20px auto;
 }
 .flexCards {
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
 }
-.center {
+.random-btn {
     display: flex;
     justify-content: center;
+    margin-top: 50px;
+    transition: all 0.3s;
 }
 .currentCard {
     display: block;
@@ -83,6 +91,8 @@ hr {
     border-radius: 10px;
     margin: 10px;
 }
-.append-cards {
-    margin-bottom:200px;
+@media screen and (min-width: 470px) {
+    .random-btn {
+        margin-top: 30px;
+    }
 }
