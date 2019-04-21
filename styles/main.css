@@ -91,6 +91,10 @@ hr {
     border-radius: 10px;
     margin: 10px;
 }
+/* in order to see all append cards and not be hidden by menu */
+.append-cards {
+ margin-bottom: 100px;
+}
 @media screen and (min-width: 470px) {
     .random-btn {
         margin-top: 30px;
