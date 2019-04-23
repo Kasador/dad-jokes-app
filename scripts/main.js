@@ -1,4 +1,14 @@
 $(document).ready(function(){
+// splash screen load in!!!
+setTimeout( () => {
+    $('.splash-screen').fadeIn(1000);
+}, 200);
+setTimeout( () => {
+    $('.splash-screen').fadeOut('slow');
+}, 4000);
+setTimeout( () => {
+    $('.main-content').fadeIn('slow');
+}, 4600);
 //=========================== F U N C T I O N S ====================================//
 // function to get random card
     function generateCard() {
@@ -219,6 +229,7 @@ $(document).ready(function(){
         if (confirm('Delete all saved jokes?')) {
             // clear localStorage
             localStorage.clear();
+            location.reload();
         } else {
             // Do nothing!
         }
