@@ -172,7 +172,8 @@ $(document).ready(function(){
             settingsPage.animate({width:'toggle'},350);
         }
     });
-        // check and setInterval
+    // ------------------ FAVORITES PAGE -------------
+    // check and setInterval
     setInterval( () => {
         // console.log('looping');
         // loop through all cards and append if saved
@@ -189,7 +190,7 @@ $(document).ready(function(){
                 if (checkCard.length == 0) {
                     // append cards
                     $('.append-cards').append(
-                        '<div class="card-body border" id="card-append'+i+'"><h5 class="card-title title-append'+i+'"></h5><p class="card-text text-append'+i+'"></p><a href="#" class="btn btn-primary btn-append'+i+' appended-buttons"></a></div>'
+                        '<div class="card-body border" id="card-append'+i+'"><h5 class="card-title title-append'+i+'"></h5><p class="card-text text-append'+i+'"></p><a href="#" class="btn btn-primary btn-append'+i+'"></a></div>'
                     );
                     $('.title-append' + i).append(title);
                     $('.text-append' + i).append(text);
@@ -205,4 +206,22 @@ $(document).ready(function(){
             }
         }
     }, 0);
+    for (let j=1; j < $('.card').length + 1; j++) {
+        let favBtns = $('.btn-append'+j);
+
+        favBtns.on('click', () => {
+            console.log('test');
+        });
+    }
+    // -------------- end of FAVORITES PAGE -------------
+    // --------------- SETTINGS PAGE -------------
+    $('.clear').on('click', () => {
+        if (confirm('Delete all saved jokes?')) {
+            // clear localStorage
+            localStorage.clear();
+        } else {
+            // Do nothing!
+        }
+    });
+    // -------------end of SETTINGS PAGE -------------
 });

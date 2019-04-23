@@ -92,11 +92,19 @@ hr {
     width: 80%;
     border-color: #222;
     border-width: 2px;
+    max-width: 300px;
 }
 .border {
     border: 2px solid #222 !important;
     border-radius: 10px;
     margin: 10px;
+}
+.clear {
+    font-size: 1.5rem;
+    width: 50%;
+    max-width: 210px;
+    display: block;
+    margin: 20px auto;
 }
 /* in order to see all append cards and not be hidden by menu */
 .append-cards {
