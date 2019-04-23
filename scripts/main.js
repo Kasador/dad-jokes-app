@@ -1,9 +1,7 @@
 $(document).ready(function(){
 //=========================== F U N C T I O N S ====================================//
-//=========================== F U N C T I O N S ====================================//
-//=========================== F U N C T I O N S ====================================//
 // function to get random card
-    function generateCard(card) {
+    function generateCard() {
     // get cards and the count
         let cards = $('.card');
         let cardsLen = cards.length;
@@ -23,7 +21,7 @@ $(document).ready(function(){
     }
 
 // remove last card function
-    function removeLastCard(current) {
+    function removeLastCard() {
         // get current card
         let currentCard = $(".card:visible");
         return currentCard;
@@ -70,8 +68,6 @@ $(document).ready(function(){
         return savedText;
     }
 
-//=========================== end of F U N C T I O N S ====================================//
-//=========================== end of F U N C T I O N S ====================================//
 //=========================== end of F U N C T I O N S ====================================//
 
     // display first card
@@ -178,7 +174,7 @@ $(document).ready(function(){
     });
         // check and setInterval
     setInterval( () => {
-        console.log('looping');
+        // console.log('looping');
         // loop through all cards and append if saved
         for (let i=1; i < $('.card').length + 1; i++) {
             // variables for localStorage items
@@ -192,7 +188,7 @@ $(document).ready(function(){
                 if (checkCard.length == 0) {
                     // append cards
                     $('.append-cards').append(
-                        '<div class="card-body border" id="card-append'+i+'"><h5 class="card-title title-append'+i+'"></h5><p class="card-text text-append'+i+'"></p><a href="#" class="btn btn-primary saveBtn notSaved btn-append'+i+'"></a></div>'
+                        '<div class="card-body border" id="card-append'+i+'"><h5 class="card-title title-append'+i+'"></h5><p class="card-text text-append'+i+'"></p><a href="#" class="btn btn-primary btn-append'+i+' appended-buttons"></a></div>'
                     );
                     $('.title-append' + i).append(title);
                     $('.text-append' + i).append(text);
