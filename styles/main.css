@@ -128,8 +128,8 @@ hr {
 }
 .clear {
     font-size: 1.5rem;
-    width: 50%;
-    max-width: 210px;
+    width: 90%;
+    max-width: 300px;
     display: block;
     margin: 20px auto;
 }

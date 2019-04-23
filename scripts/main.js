@@ -185,7 +185,6 @@ setTimeout( () => {
     // ------------------ FAVORITES PAGE -------------
     // check and setInterval
     setInterval( () => {
-        // console.log('looping');
         // loop through all cards and append if saved
         for (let i=1; i < $('.card').length + 1; i++) {
             // variables for localStorage items
@@ -217,11 +216,10 @@ setTimeout( () => {
         }
     }, 0);
     for (let j=1; j < $('.card').length + 1; j++) {
-        let favBtns = $('.btn-append'+j);
-
-        favBtns.on('click', () => {
-            console.log('test');
-        });
+        if ($('.btn-append'+j).length > 0) {
+            let favBtns = $('.btn-append'+j);
+            console.log('Cards are in favorites!');
+        }
     }
     // -------------- end of FAVORITES PAGE -------------
     // --------------- SETTINGS PAGE -------------
