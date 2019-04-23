@@ -185,6 +185,7 @@ $(document).ready(function(){
             // check if there is data in localStorage, if so, append
             if (title !== null && text !== null && btn !== null) {
                 // check if already appended, so if, don't append again
+                checkCard.css('display', 'block');
                 if (checkCard.length == 0) {
                     // append cards
                     $('.append-cards').append(
@@ -194,7 +195,14 @@ $(document).ready(function(){
                     $('.text-append' + i).append(text);
                     $('.btn-append' + i).append(btn);
                 }
+            } else if (title == null && text == null && btn == null) {
+                // check if there ISN'T data in localStorage, if so, delete
+                // check if already appended, so if, don't append again
+                if (checkCard.length > 0) {
+                    // delete cards
+                    checkCard.css('display', 'none');
+                }
             }
         }
-    }, 1000);
+    }, 0);
 });
