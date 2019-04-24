@@ -12,41 +12,26 @@ setTimeout( () => {
 //=========================== F U N C T I O N S ====================================//
 // function to get random card
     function generateCard() {
-    // get cards and the count
         let cards = $('.card');
         let cardsLen = cards.length;
 
-    // generate random number based on amount of cards
         let indexNum = Math.floor(Math.random() * cardsLen);
-
-    // get the card that matches array value of random num
         let getCard = cards[indexNum];
-
-    // set id to the card number
         let idNum = (indexNum + 1);
-        getCard.id = idNum;
 
-    // return card info
+        getCard.id = idNum;
         return getCard;
     }
-
-// remove last card function
+    // remove last card function
     function removeLastCard() {
         // get current card
         let currentCard = $(".card:visible");
         return currentCard;
     }
-
-        // save data
-        function saveData(data) {
+    // save data
+    function saveData(data) {
         localStorage.setItem(data, unsave);
     }
-
-    // delete data
-    function deleteData(data) {
-        localStorage.removeItem(data);
-    }
-    
     // save card title
     function saveTitle(data) {
         let savedTitle = getCurrentTitle();
@@ -57,33 +42,33 @@ setTimeout( () => {
         let savedText = getCurrentText();
         localStorage.setItem(data, savedText);
     }
-
+    // ??? Amazing how much one can improve in 6 months. 
+    // I'm leaving this here for an example. this is not DRY...
     // delete card title
     function deleteTitle(data) {
         localStorage.removeItem(data);
     }
-
     // delete card text
     function deleteText(data) {
         localStorage.removeItem(data);
     }
-
+    // delete data
+    function deleteData(data) {
+        localStorage.removeItem(data);
+    }
     function getCurrentTitle() {
         let savedTitle = $(".card:visible").find('.card-title').text();
         return savedTitle;
     }
-
     function getCurrentText() {
         let savedText = $(".card:visible").find('.card-text').text();
         return savedText;
     }
-
 //=========================== end of F U N C T I O N S ====================================//
 
     // display first card
     let firstLoaded = true;
-
-// display first card only on load
+    // display first card only on load
     do {
         generateCard().style.display = 'block';
         firstLoaded = false;
@@ -191,7 +176,7 @@ setTimeout( () => {
             let title = localStorage.getItem('title ' + i),
                 text = localStorage.getItem('text ' + i),
                 btn = localStorage.getItem('button ' + i),
-                checkCard = $('#card-append'+i);
+                checkCard = $('.card-append'+i);
             // check if there is data in localStorage, if so, append
             if (title !== null && text !== null && btn !== null) {
                 // check if already appended, so if, don't append again
@@ -199,7 +184,7 @@ setTimeout( () => {
                 if (checkCard.length == 0) {
                     // append cards
                     $('.append-cards').append(
-                        '<div class="card-body border" id="card-append'+i+'"><h5 class="card-title title-append'+i+'"></h5><p class="card-text text-append'+i+'"></p><a href="#" class="btn btn-primary btn-append'+i+'"></a></div>'
+                        '<div class="card-body border card-append'+i+'" id="'+i+'"><h5 class="card-title title-append'+i+'"></h5><p class="card-text text-append'+i+'"></p><a href="#" class="btn btn-primary btn-append'+i+'"></a></div>'
                     );
                     $('.title-append' + i).append(title);
                     $('.text-append' + i).append(text);
@@ -215,13 +200,21 @@ setTimeout( () => {
             }
         }
     }, 0);
-    for (let j=1; j < $('.card').length + 1; j++) {
-        if ($('.btn-append'+j).length > 0) {
-            let favBtns = $('.btn-append'+j);
-            console.log('Cards are in favorites!');
+    // delete card in favorites on button click
+    $('.append-cards').on('click', 'a', function (){
+        let cardId = this.parentNode.id;
+        console.log(cardId);
+        deleteData("button " + cardId);
+        deleteText("text " + cardId);
+        deleteTitle("title " + cardId);
+
+        // change unsave back to save on main 
+        if ($('.card').hasClass(cardId)) {
+            $('.saveBtn').html(save);
+        } else {
+            $('.saveBtn').html(unsave);
         }
-    }
-    // -------------- end of FAVORITES PAGE -------------
+    });
     // --------------- SETTINGS PAGE -------------
     $('.clear').on('click', () => {
         if (confirm('Delete all saved jokes?')) {
@@ -232,5 +225,4 @@ setTimeout( () => {
             // Do nothing!
         }
     });
-    // -------------end of SETTINGS PAGE -------------
 });
