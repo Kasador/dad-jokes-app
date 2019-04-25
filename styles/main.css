@@ -70,6 +70,7 @@
     float: none; 
     display: none;
     margin: 20px auto;
+    min-height: 414px;
 }
 .flexCards {
     display: flex;
